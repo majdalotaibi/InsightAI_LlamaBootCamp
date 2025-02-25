@@ -1,4 +1,4 @@
-# 📊 InsightAI: Final Project for Generative Artificial Intelligence Bootcamp based on LLAMA
+# 📊 InsightAI: Final Project for Generative AI Bootcamp based on LLAMA
 
 InsightAI is an interactive AI-powered web application that transforms natural language queries into executable Python Pandas code, enabling seamless data analysis and visualization. This project combines state-of-the-art language models, Retrieval-Augmented Generation (RAG), and dynamic data visualization tools to provide a unique conversational experience for data exploration.
 
@@ -36,7 +36,7 @@ Check out the live demo on Hugging Face Spaces:
 
 ## 📄 **Project Resources**
 
-- 📑 Project Report : 
+- 📑 Project Report : InsightGPT.pdf
 
 - 🎥 Presentation : https://prezi.com/view/66tpVaJNUvYibaCXUR2h/
 
