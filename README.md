@@ -33,9 +33,7 @@ Visualize Data Live: Matplotlib-powered visualizations update in real-time along
 
 - /data: Contains dataset files used in the application.
 
-- /src: Source code for model integration, UI, and processing logic.
-
-- /notebooks: Google Colab Notebook for testing and experimentation.
+- /notebook: Source code for model integration, UI, and processing logic.
 
 - requirements.txt: Dependencies required to run the project.
 
