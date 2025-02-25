@@ -1,0 +1,1298 @@
+request,code
+"Get all orders from 'Brazil' where sales are greater than 1321, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 1321)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Display total sales by category and segment in a stacked bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+sales_summary = df.groupby(['Category', 'Segment'])['Sales'].sum().unstack()
+
+sales_summary.plot(kind='bar', stacked=True, title='Total Sales by Category and Segment')
+plt.ylabel('Total Sales')
+plt.xlabel('Category')
+plt.show()
+         "
+Compare shipping modes by total sales for 'France' in 2015 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'France') & (df['Order Date'].str.contains('2015'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in France (2015)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Calculate average discount for 'Technology' category by segment and visualize using a bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+avg_discount = df[df['Category'] == 'Technology'].groupby('Segment')['Discount'].mean()
+
+avg_discount.plot(kind='bar', title='Average Discount by Segment for Technology')
+plt.ylabel('Average Discount')
+plt.xlabel('Segment')
+plt.show()
+         "
+Plot the profit distribution for 'Corporate' segment in 2017.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Corporate') & (df['Order Date'].str.contains('2017'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Corporate Segment in 2017')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Show the top 10 products by total profit in 'South' region.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_products = df[df['Region'] == 'South'].groupby('Product Name')['Profit'].sum().nlargest(10)
+
+top_products.plot(kind='bar', title='Top 10 Products by Profit in South')
+plt.ylabel('Total Profit')
+plt.xlabel('Product Name')
+plt.show()
+         "
+"Get all orders from 'France' where sales are greater than 1936, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'France') & (df['Sales'] > 1936)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'United States' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'United States') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in United States (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Calculate average discount for 'Office Supplies' category by segment and visualize using a bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+avg_discount = df[df['Category'] == 'Office Supplies'].groupby('Segment')['Discount'].mean()
+
+avg_discount.plot(kind='bar', title='Average Discount by Segment for Office Supplies')
+plt.ylabel('Average Discount')
+plt.xlabel('Segment')
+plt.show()
+         "
+Plot the profit distribution for 'Corporate' segment in 2014.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Corporate') & (df['Order Date'].str.contains('2014'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Corporate Segment in 2014')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+"Get all orders from 'France' where sales are greater than 1906, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'France') & (df['Sales'] > 1906)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'France' in 2014 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'France') & (df['Order Date'].str.contains('2014'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in France (2014)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'India' in 2014 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'India') & (df['Order Date'].str.contains('2014'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in India (2014)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 949, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 949)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 605, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 605)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Plot the profit distribution for 'Corporate' segment in 2015.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Corporate') & (df['Order Date'].str.contains('2015'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Corporate Segment in 2015')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Show the top 10 products by total profit in 'West' region.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_products = df[df['Region'] == 'West'].groupby('Product Name')['Profit'].sum().nlargest(10)
+
+top_products.plot(kind='bar', title='Top 10 Products by Profit in West')
+plt.ylabel('Total Profit')
+plt.xlabel('Product Name')
+plt.show()
+         "
+Show the top 10 products by total profit in 'Central' region.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_products = df[df['Region'] == 'Central'].groupby('Product Name')['Profit'].sum().nlargest(10)
+
+top_products.plot(kind='bar', title='Top 10 Products by Profit in Central')
+plt.ylabel('Total Profit')
+plt.xlabel('Product Name')
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'Saudi Arabia' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'Saudi Arabia'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in Saudi Arabia')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 1572, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 1572)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'Brazil' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'Brazil'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in Brazil')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'India' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'India'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in India')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+Calculate average discount for 'Furniture' category by segment and visualize using a bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+avg_discount = df[df['Category'] == 'Furniture'].groupby('Segment')['Discount'].mean()
+
+avg_discount.plot(kind='bar', title='Average Discount by Segment for Furniture')
+plt.ylabel('Average Discount')
+plt.xlabel('Segment')
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'Australia' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'Australia'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in Australia')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 601, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 601)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 534, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 534)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'Germany' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'Germany'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in Germany')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Saudi Arabia' in 2014 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Saudi Arabia') & (df['Order Date'].str.contains('2014'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Saudi Arabia (2014)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Brazil' in 2014 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Brazil') & (df['Order Date'].str.contains('2014'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Brazil (2014)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'United States' where sales are greater than 1742, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'United States') & (df['Sales'] > 1742)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Plot the profit distribution for 'Home Office' segment in 2016.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Home Office') & (df['Order Date'].str.contains('2016'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Home Office Segment in 2016')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 1440, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 1440)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'France' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'France') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in France (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Plot the profit distribution for 'Consumer' segment in 2014.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Consumer') & (df['Order Date'].str.contains('2014'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Consumer Segment in 2014')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Show the top 10 products by total profit in 'East' region.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_products = df[df['Region'] == 'East'].groupby('Product Name')['Profit'].sum().nlargest(10)
+
+top_products.plot(kind='bar', title='Top 10 Products by Profit in East')
+plt.ylabel('Total Profit')
+plt.xlabel('Product Name')
+plt.show()
+         "
+Plot the profit distribution for 'Consumer' segment in 2017.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Consumer') & (df['Order Date'].str.contains('2017'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Consumer Segment in 2017')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Plot the profit distribution for 'Corporate' segment in 2016.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Corporate') & (df['Order Date'].str.contains('2016'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Corporate Segment in 2016')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Compare shipping modes by total sales for 'United States' in 2015 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'United States') & (df['Order Date'].str.contains('2015'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in United States (2015)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Plot the profit distribution for 'Consumer' segment in 2016.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Consumer') & (df['Order Date'].str.contains('2016'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Consumer Segment in 2016')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Germany' in 2014 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Germany') & (df['Order Date'].str.contains('2014'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Germany (2014)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'Australia' where sales are greater than 921, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Australia') & (df['Sales'] > 921)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Plot the profit distribution for 'Home Office' segment in 2017.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Home Office') & (df['Order Date'].str.contains('2017'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Home Office Segment in 2017')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Australia' in 2016 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Australia') & (df['Order Date'].str.contains('2016'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Australia (2016)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Germany' in 2015 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Germany') & (df['Order Date'].str.contains('2015'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Germany (2015)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Plot the profit distribution for 'Home Office' segment in 2014.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Home Office') & (df['Order Date'].str.contains('2014'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Home Office Segment in 2014')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Plot the profit distribution for 'Consumer' segment in 2015.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Consumer') & (df['Order Date'].str.contains('2015'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Consumer Segment in 2015')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+"Get all orders from 'Germany' where sales are greater than 1124, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Germany') & (df['Sales'] > 1124)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Germany' where sales are greater than 638, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Germany') & (df['Sales'] > 638)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 1004, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 1004)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Plot the profit distribution for 'Home Office' segment in 2015.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Segment'] == 'Home Office') & (df['Order Date'].str.contains('2015'))]
+
+plt.hist(df_filtered['Profit'], bins=20, alpha=0.7)
+plt.title('Profit Distribution for Home Office Segment in 2015')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'United States' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'United States'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in United States')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+"Get all orders from 'India' where sales are greater than 1567, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'India') & (df['Sales'] > 1567)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Germany' where sales are greater than 1159, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Germany') & (df['Sales'] > 1159)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'Brazil' in 2015 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Brazil') & (df['Order Date'].str.contains('2015'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Brazil (2015)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 1796, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 1796)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'France' where sales are greater than 511, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'France') & (df['Sales'] > 511)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'United States' where sales are greater than 799, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'United States') & (df['Sales'] > 799)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Australia' where sales are greater than 1156, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Australia') & (df['Sales'] > 1156)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 788, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 788)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'Germany' in 2016 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Germany') & (df['Order Date'].str.contains('2016'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Germany (2016)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 1600, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 1600)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 1121, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 1121)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'Germany' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Germany') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Germany (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'India' where sales are greater than 1106, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'India') & (df['Sales'] > 1106)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 1805, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 1805)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 1622, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 1622)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'Brazil' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Brazil') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Brazil (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Saudi Arabia' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Saudi Arabia') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Saudi Arabia (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Saudi Arabia' in 2015 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Saudi Arabia') & (df['Order Date'].str.contains('2015'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Saudi Arabia (2015)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Brazil' in 2016 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Brazil') & (df['Order Date'].str.contains('2016'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Brazil (2016)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 905, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 905)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 605, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 605)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Germany' where sales are greater than 1875, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Germany') & (df['Sales'] > 1875)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'Canada' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'Canada'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in Canada')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+"Get all orders from 'France' where sales are greater than 1008, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'France') & (df['Sales'] > 1008)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 1155, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 1155)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'India' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'India') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in India (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 1997, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 1997)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 1635, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 1635)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 1670, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 1670)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'India' in 2015 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'India') & (df['Order Date'].str.contains('2015'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in India (2015)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'United States' where sales are greater than 1338, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'United States') & (df['Sales'] > 1338)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'United States' where sales are greater than 1860, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'United States') & (df['Sales'] > 1860)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 1721, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 1721)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Identify the top 5 cities by total sales in 'France' and display a horizontal bar chart.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+top_cities = df[df['Country'] == 'France'].groupby('City')['Sales'].sum().nlargest(5)
+
+top_cities.plot(kind='barh', title='Top 5 Cities by Sales in France')
+plt.xlabel('Total Sales')
+plt.ylabel('City')
+plt.show()
+         "
+"Get all orders from 'India' where sales are greater than 736, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'India') & (df['Sales'] > 736)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'United States' where sales are greater than 808, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'United States') & (df['Sales'] > 808)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'France' where sales are greater than 1580, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'France') & (df['Sales'] > 1580)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'Australia' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Australia') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Australia (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Canada' in 2014 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Canada') & (df['Order Date'].str.contains('2014'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Canada (2014)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'France' in 2016 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'France') & (df['Order Date'].str.contains('2016'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in France (2016)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'Germany' where sales are greater than 1507, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Germany') & (df['Sales'] > 1507)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+Compare shipping modes by total sales for 'United States' in 2014 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'United States') & (df['Order Date'].str.contains('2014'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in United States (2014)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+Compare shipping modes by total sales for 'Canada' in 2017 and plot the results.,"
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df_filtered = df[(df['Country'] == 'Canada') & (df['Order Date'].str.contains('2017'))]
+ship_sales = df_filtered.groupby('Ship Mode')['Sales'].sum()
+
+ship_sales.plot(kind='bar', title='Sales by Shipping Mode in Canada (2017)')
+plt.ylabel('Total Sales')
+plt.xlabel('Shipping Mode')
+plt.show()
+         "
+"Get all orders from 'France' where sales are greater than 1791, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'France') & (df['Sales'] > 1791)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 1298, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 1298)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'India' where sales are greater than 798, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'India') & (df['Sales'] > 798)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Saudi Arabia' where sales are greater than 1540, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Saudi Arabia') & (df['Sales'] > 1540)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Brazil' where sales are greater than 1908, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Brazil') & (df['Sales'] > 1908)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Canada' where sales are greater than 1220, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Canada') & (df['Sales'] > 1220)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
+"Get all orders from 'Australia' where sales are greater than 1408, and plot the sales distribution.","
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/content/global-super-store-dataset/Global_Superstore2.csv', encoding='ISO-8859-1')
+df = df[(df['Country'] == 'Australia') & (df['Sales'] > 1408)]
+
+plt.hist(df['Sales'], bins=20, alpha=0.5, label='Sales Distribution')
+plt.xlabel('Sales Value')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+         "
