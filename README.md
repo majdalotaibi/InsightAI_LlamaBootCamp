@@ -29,15 +29,6 @@ Visualize Data Live: Matplotlib-powered visualizations update in real-time along
 
 5. Context retention across queries using LangChain Memory.
 
-## 💡**Project Structure**
-
-- /data: Contains dataset files used in the application.
-
-- /notebook: Source code for model integration, UI, and processing logic.
-
-- requirements.txt: Dependencies required to run the project.
-
-
 ## 🌐 **Live Demo**
 
 Check out the live demo on Hugging Face Spaces:
@@ -45,7 +36,7 @@ Check out the live demo on Hugging Face Spaces:
 
 ## 📄 **Project Resources**
 
-- 📑 Project Report :
+- 📑 Project Report : 
 
 - 🎥 Presentation : https://prezi.com/view/66tpVaJNUvYibaCXUR2h/
 
